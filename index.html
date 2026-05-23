@@ -3,233 +3,362 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Guide Penamaan & Assignment</title>
+  <title>Guide Penamaan Sistem</title>
   <style>
     :root {
-      --ink: #172026;
-      --muted: #65717c;
+      --bg: #f6efe4;
       --paper: #fffdf8;
-      --soft: #f5efe3;
-      --line: #ded6c8;
+      --ink: #182126;
+      --muted: #66737d;
+      --line: #ded3c3;
       --teal: #087f7b;
-      --teal-soft: #dff5f1;
+      --teal-2: #0d5f5f;
+      --mint: #dff5f1;
       --amber: #b86700;
-      --amber-soft: #fff0cf;
+      --amber-soft: #fff1cc;
       --red: #b42318;
-      --red-soft: #ffe4df;
+      --red-soft: #ffe3dc;
       --green: #1f7a3f;
-      --green-soft: #ddf4e6;
+      --green-soft: #dff4e7;
       --blue: #285f9f;
-      --blue-soft: #e2efff;
-      --shadow: 0 18px 45px rgba(42, 35, 24, .12);
+      --blue-soft: #e4f0ff;
+      --shadow: 0 24px 60px rgba(50, 39, 25, .14);
+      --radius: 8px;
     }
 
     * { box-sizing: border-box; }
 
+    html { scroll-behavior: smooth; }
+
     body {
       margin: 0;
-      background:
-        radial-gradient(circle at top left, rgba(8, 127, 123, .18), transparent 34rem),
-        linear-gradient(135deg, #f9f4ea 0%, #f3eadb 42%, #eef5f3 100%);
       color: var(--ink);
-      font-family: "Trebuchet MS", "Aptos", Arial, sans-serif;
+      font-family: "Trebuchet MS", "Segoe UI", Arial, sans-serif;
       line-height: 1.55;
+      background:
+        linear-gradient(90deg, rgba(8, 127, 123, .07) 1px, transparent 1px),
+        linear-gradient(0deg, rgba(8, 127, 123, .05) 1px, transparent 1px),
+        radial-gradient(circle at 18% 0%, rgba(8, 127, 123, .24), transparent 30rem),
+        radial-gradient(circle at 90% 12%, rgba(184, 103, 0, .18), transparent 26rem),
+        linear-gradient(135deg, #faf4ea, #eef6f3 72%);
+      background-size: 32px 32px, 32px 32px, auto, auto, auto;
     }
 
     main {
-      max-width: 1120px;
+      max-width: 1180px;
       margin: 0 auto;
-      padding: 28px 14px 44px;
+      padding: 28px 14px 52px;
+    }
+
+    .shell {
+      display: grid;
+      grid-template-columns: 240px minmax(0, 1fr);
+      gap: 18px;
+      align-items: start;
+    }
+
+    .side {
+      position: sticky;
+      top: 16px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .brand-card,
+    .panel,
+    .nav,
+    .metric {
+      background: rgba(255, 253, 248, .94);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .brand-card {
+      padding: 18px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .brand-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto;
+      height: 7px;
+      background: linear-gradient(90deg, var(--teal), #f5a524, var(--red));
+    }
+
+    .brand-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .brand-card strong {
+      display: block;
+      margin-top: 8px;
+      font-size: 24px;
+      line-height: 1.05;
+    }
+
+    .nav {
+      padding: 8px;
+      display: grid;
+      gap: 6px;
+      box-shadow: 0 16px 34px rgba(50, 39, 25, .10);
+    }
+
+    .nav a {
+      display: block;
+      padding: 10px 11px;
+      border-radius: 7px;
+      color: #274148;
+      font-size: 14px;
+      font-weight: 900;
+      text-decoration: none;
+    }
+
+    .nav a:hover {
+      background: var(--mint);
+      color: var(--teal-2);
     }
 
     .hero {
+      min-height: 310px;
       display: grid;
-      grid-template-columns: 1.25fr .75fr;
+      grid-template-columns: minmax(0, 1.2fr) 300px;
       gap: 18px;
-      align-items: stretch;
       margin-bottom: 18px;
     }
 
-    .panel {
-      background: rgba(255, 253, 248, .92);
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      box-shadow: var(--shadow);
+    .hero-main {
+      position: relative;
       overflow: hidden;
+      padding: 34px;
+      color: #fff;
+      background:
+        linear-gradient(135deg, rgba(8,127,123,.97), rgba(27,77,83,.97)),
+        repeating-linear-gradient(-35deg, transparent 0 20px, rgba(255,255,255,.12) 20px 23px);
     }
 
-    .hero-main {
-      padding: 28px;
-      background:
-        linear-gradient(135deg, rgba(8, 127, 123, .96), rgba(28, 88, 92, .96)),
-        repeating-linear-gradient(45deg, transparent 0 18px, rgba(255,255,255,.1) 18px 20px);
-      color: #ffffff;
+    .hero-main::after {
+      content: "WA";
+      position: absolute;
+      right: 24px;
+      bottom: -28px;
+      color: rgba(255,255,255,.1);
+      font-size: 142px;
+      font-weight: 900;
+      letter-spacing: 0;
+      line-height: 1;
     }
 
     .eyebrow {
       margin: 0 0 10px;
       font-size: 12px;
-      font-weight: 800;
+      font-weight: 900;
       letter-spacing: .12em;
       text-transform: uppercase;
-      opacity: .92;
+      color: rgba(255,255,255,.86);
     }
 
     h1 {
+      position: relative;
+      z-index: 1;
       margin: 0;
-      font-size: 34px;
-      line-height: 1.08;
+      max-width: 760px;
+      font-size: 46px;
+      line-height: 1;
       letter-spacing: 0;
     }
 
     .hero-main p {
-      max-width: 650px;
-      margin: 14px 0 0;
+      position: relative;
+      z-index: 1;
+      max-width: 660px;
+      margin: 16px 0 0;
       color: rgba(255,255,255,.9);
-      font-size: 16px;
+      font-size: 17px;
     }
 
     .deadline {
-      padding: 24px;
       display: grid;
-      align-content: center;
-      gap: 12px;
-      background: var(--paper);
+      align-content: space-between;
+      gap: 18px;
+      padding: 24px;
     }
 
-    .date-pill {
+    .tag {
       width: fit-content;
-      padding: 8px 12px;
+      padding: 7px 10px;
       border-radius: 999px;
-      background: var(--red-soft);
-      color: var(--red);
-      font-weight: 800;
-      font-size: 13px;
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: .05em;
+      text-transform: uppercase;
     }
+
+    .tag.red { color: var(--red); background: var(--red-soft); }
+    .tag.green { color: var(--green); background: var(--green-soft); }
+    .tag.amber { color: var(--amber); background: var(--amber-soft); }
+    .tag.blue { color: var(--blue); background: var(--blue-soft); }
 
     .deadline strong {
       display: block;
-      font-size: 28px;
-      line-height: 1.05;
-      color: #3a2414;
+      margin-top: 8px;
+      font-size: 34px;
+      line-height: 1;
+      color: #3b271a;
     }
 
-    .quick-grid {
+    .deadline p,
+    .muted {
+      margin: 8px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .metrics {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 12px;
       margin-bottom: 18px;
     }
 
-    .stat {
+    .metric {
       padding: 16px;
-      background: var(--paper);
-      border: 1px solid var(--line);
-      border-radius: 8px;
+      box-shadow: 0 14px 32px rgba(50, 39, 25, .08);
     }
 
-    .stat span {
+    .metric span {
       display: block;
       color: var(--muted);
       font-size: 12px;
-      font-weight: 800;
-      text-transform: uppercase;
+      font-weight: 900;
       letter-spacing: .06em;
+      text-transform: uppercase;
     }
 
-    .stat strong {
+    .metric strong {
       display: block;
       margin-top: 4px;
-      font-size: 20px;
+      font-size: 21px;
     }
 
-    .section {
-      padding: 22px;
+    .panel {
+      padding: 24px;
       margin-bottom: 18px;
     }
 
-    .section h2 {
-      margin: 0 0 14px;
-      font-size: 22px;
-      letter-spacing: 0;
+    .panel h2 {
+      margin: 0 0 6px;
+      font-size: 25px;
+      line-height: 1.15;
     }
 
-    .flow {
+    .section-intro {
+      margin: 0 0 16px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .steps,
+    .rules,
+    .assignments,
+    .practice-grid,
+    .checklist {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
       gap: 12px;
     }
 
-    .card {
+    .steps { grid-template-columns: repeat(3, 1fr); }
+    .rules { grid-template-columns: repeat(2, 1fr); }
+    .assignments { grid-template-columns: repeat(2, 1fr); }
+    .practice-grid { grid-template-columns: .9fr 1.1fr; }
+    .checklist { grid-template-columns: repeat(2, 1fr); }
+
+    .card,
+    .task,
+    details,
+    .choice label,
+    .checklist label {
+      background: #fff;
       border: 1px solid var(--line);
-      border-radius: 8px;
-      background: #ffffff;
-      padding: 14px;
+      border-radius: var(--radius);
     }
 
-    .card h3 {
-      display: flex;
-      align-items: center;
-      gap: 9px;
-      margin: 0 0 8px;
-      font-size: 16px;
+    .card,
+    .task {
+      padding: 15px;
     }
 
-    .num {
+    .card h3,
+    .task h3 {
+      margin: 0 0 9px;
+      font-size: 17px;
+      line-height: 1.25;
+    }
+
+    .kicker {
       display: inline-grid;
       place-items: center;
-      flex: 0 0 auto;
-      width: 26px;
-      height: 26px;
+      min-width: 30px;
+      height: 30px;
+      padding: 0 8px;
       border-radius: 999px;
-      background: var(--teal-soft);
-      color: var(--teal);
+      margin-right: 8px;
+      background: var(--mint);
+      color: var(--teal-2);
       font-weight: 900;
       font-size: 13px;
     }
 
-    .formula {
+    .code {
       margin: 10px 0;
-      padding: 10px;
+      padding: 11px;
       border-radius: 7px;
-      background: #f4f7f8;
-      border: 1px dashed #b7c4ca;
+      border: 1px dashed #a9bac0;
+      background: #f4f8f8;
       color: #102a37;
       font-family: Consolas, Monaco, monospace;
       font-size: 13px;
       overflow-wrap: anywhere;
     }
 
-    .hint {
-      margin: 8px 0 0;
-      color: var(--muted);
+    .example {
+      margin-top: 9px;
+      padding: 9px 10px;
+      border-radius: 7px;
+      background: var(--mint);
+      color: #064d4a;
       font-size: 14px;
+      font-weight: 900;
     }
 
     details {
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      background: #ffffff;
       overflow: hidden;
-      transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease;
+      transition: box-shadow .2s ease, border-color .2s ease;
     }
 
     details + details { margin-top: 10px; }
 
     details[open] {
-      border-color: rgba(8, 127, 123, .48);
-      box-shadow: 0 12px 28px rgba(8, 127, 123, .10);
+      border-color: rgba(8,127,123,.5);
+      box-shadow: 0 14px 32px rgba(8,127,123,.1);
     }
 
     summary {
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      gap: 14px;
-      padding: 14px;
+      align-items: center;
+      gap: 12px;
+      padding: 15px;
       cursor: pointer;
-      font-weight: 900;
       list-style: none;
+      font-weight: 900;
       user-select: none;
     }
 
@@ -241,110 +370,27 @@
       place-items: center;
       width: 28px;
       height: 28px;
-      flex: 0 0 auto;
       border-radius: 999px;
-      background: var(--teal-soft);
-      color: var(--teal);
+      background: var(--mint);
+      color: var(--teal-2);
+      flex: 0 0 auto;
       font-size: 18px;
-      line-height: 1;
-      transition: transform .2s ease;
     }
 
-    details[open] summary::after {
-      content: "-";
-      transform: rotate(180deg);
-    }
+    details[open] summary::after { content: "-"; }
 
     .detail-body {
-      padding: 0 14px 14px;
-      color: #35434d;
+      padding: 0 15px 15px;
+      color: #384750;
       font-size: 14px;
-    }
-
-    .quiz {
-      display: grid;
-      gap: 10px;
-    }
-
-    .quiz input,
-    .study-check input {
-      position: absolute;
-      opacity: 0;
-      pointer-events: none;
-    }
-
-    .quiz label {
-      display: block;
-      padding: 12px;
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      background: #ffffff;
-      cursor: pointer;
-      transition: background .2s ease, border-color .2s ease, transform .2s ease;
-    }
-
-    .quiz label:hover,
-    summary:hover {
-      transform: translateY(-1px);
-    }
-
-    .quiz input:checked + label {
-      border-color: var(--teal);
-      background: var(--teal-soft);
-    }
-
-    .quiz-answer {
-      display: none;
-      margin-top: 7px;
-      color: var(--teal);
-      font-size: 13px;
-      font-weight: 800;
-    }
-
-    .quiz input:checked + label .quiz-answer {
-      display: block;
-    }
-
-    .rule-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 12px;
-    }
-
-    .example {
-      margin-top: 9px;
-      padding: 9px 10px;
-      border-radius: 7px;
-      background: var(--teal-soft);
-      color: #064d4a;
-      font-weight: 800;
-      font-size: 14px;
-    }
-
-    .assignments {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 12px;
-    }
-
-    .task {
-      padding: 14px;
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      background: #ffffff;
     }
 
     .task-head {
       display: flex;
       justify-content: space-between;
-      gap: 10px;
       align-items: flex-start;
+      gap: 10px;
       margin-bottom: 8px;
-    }
-
-    .task h3 {
-      margin: 0;
-      font-size: 16px;
     }
 
     .chip {
@@ -356,59 +402,110 @@
       white-space: nowrap;
     }
 
-    .ok { background: var(--green-soft); color: var(--green); }
-    .todo { background: var(--amber-soft); color: var(--amber); }
-    .late { background: var(--red-soft); color: var(--red); }
-    .info { background: var(--blue-soft); color: var(--blue); }
+    .ok { color: var(--green); background: var(--green-soft); }
+    .todo { color: var(--amber); background: var(--amber-soft); }
+    .late { color: var(--red); background: var(--red-soft); }
+    .info { color: var(--blue); background: var(--blue-soft); }
 
     .deadline-line {
       margin: 0 0 9px;
       color: var(--muted);
       font-size: 13px;
-      font-weight: 800;
+      font-weight: 900;
     }
 
-    .task p {
+    .task p,
+    .card p {
       margin: 0;
-      color: #35434d;
+      color: #394850;
       font-size: 14px;
     }
 
-    .todo-list {
+    .tabs input,
+    .choice input,
+    .checklist input { position: absolute; opacity: 0; pointer-events: none; }
+
+    .tab-buttons {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 10px;
-      margin-top: 12px;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      margin-bottom: 12px;
     }
 
-    .todo-item {
-      display: grid;
-      grid-template-columns: 24px 1fr;
-      gap: 9px;
-      align-items: start;
-      padding: 12px;
+    .tab-buttons label {
+      padding: 10px;
       border: 1px solid var(--line);
-      border-radius: 8px;
-      background: #ffffff;
-      font-size: 14px;
+      border-radius: 7px;
+      background: #fff;
+      color: #33464e;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 900;
+      text-align: center;
     }
 
-    .study-check {
+    #tab-desc:checked ~ .tab-buttons label[for="tab-desc"],
+    #tab-wa:checked ~ .tab-buttons label[for="tab-wa"],
+    #tab-drive:checked ~ .tab-buttons label[for="tab-drive"],
+    #tab-meeting:checked ~ .tab-buttons label[for="tab-meeting"] {
+      border-color: var(--teal);
+      background: var(--mint);
+      color: var(--teal-2);
+    }
+
+    .tab-content {
+      display: none;
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+    }
+
+    #tab-desc:checked ~ .desc,
+    #tab-wa:checked ~ .wa,
+    #tab-drive:checked ~ .drive,
+    #tab-meeting:checked ~ .meeting { display: block; }
+
+    .choice {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
       gap: 10px;
-      margin-top: 12px;
     }
 
-    .study-check label {
+    .choice label {
+      display: block;
+      padding: 12px;
+      cursor: pointer;
+      transition: transform .2s ease, border-color .2s ease, background .2s ease;
+    }
+
+    .choice label:hover,
+    .checklist label:hover {
+      transform: translateY(-1px);
+    }
+
+    .answer {
+      display: none;
+      margin-top: 7px;
+      color: var(--teal-2);
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .choice input:checked + label {
+      border-color: var(--teal);
+      background: var(--mint);
+    }
+
+    .choice input:checked + label .answer { display: block; }
+
+    .wrong { color: var(--red); }
+
+    .checklist label {
       display: grid;
-      grid-template-columns: 28px 1fr;
+      grid-template-columns: 30px 1fr;
       gap: 10px;
       align-items: start;
-      padding: 12px;
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      background: #ffffff;
+      padding: 13px;
       cursor: pointer;
       transition: background .2s ease, border-color .2s ease, opacity .2s ease;
     }
@@ -416,255 +513,297 @@
     .box {
       display: grid;
       place-items: center;
-      width: 28px;
-      height: 28px;
-      border: 2px solid #9aa8ae;
+      width: 30px;
+      height: 30px;
+      border: 2px solid #98a8ae;
       border-radius: 7px;
       color: transparent;
       font-weight: 900;
     }
 
-    .study-check input:checked + label {
+    .checklist input:checked + label {
       background: var(--green-soft);
-      border-color: rgba(31, 122, 63, .5);
+      border-color: rgba(31,122,63,.45);
       opacity: .82;
     }
 
-    .study-check input:checked + label .box {
+    .checklist input:checked + label .box {
       background: var(--green);
       border-color: var(--green);
-      color: #ffffff;
-    }
-
-    .study-check input:checked + label span:last-child {
-      text-decoration: line-through;
-      color: #4d6b58;
-    }
-
-    .check {
-      display: grid;
-      place-items: center;
-      width: 24px;
-      height: 24px;
-      border-radius: 6px;
-      background: var(--teal);
       color: #fff;
-      font-weight: 900;
     }
 
-    @media (max-width: 820px) {
-      main { padding: 14px 10px 28px; }
-      .hero, .quick-grid, .flow, .rule-grid, .assignments, .todo-list, .study-check {
+    .checklist input:checked + label span:last-child {
+      color: #466352;
+      text-decoration: line-through;
+    }
+
+    .mobile-note {
+      display: none;
+      margin: 0 0 12px;
+      padding: 10px;
+      border-radius: 7px;
+      background: var(--blue-soft);
+      color: var(--blue);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    @media (max-width: 920px) {
+      main { padding: 12px 10px 34px; }
+      .shell { grid-template-columns: 1fr; }
+      .side { position: static; }
+      .nav {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .hero,
+      .metrics,
+      .steps,
+      .rules,
+      .assignments,
+      .practice-grid,
+      .checklist {
         grid-template-columns: 1fr;
       }
-      h1 { font-size: 28px; }
-      .hero-main, .deadline, .section { padding: 18px; }
-      .task-head { display: block; }
-      .chip { margin-top: 8px; }
+      .hero-main,
+      .deadline,
+      .panel { padding: 18px; }
+      h1 { font-size: 32px; }
+      .tab-buttons { grid-template-columns: repeat(2, 1fr); }
+      .mobile-note { display: block; }
     }
   </style>
 </head>
 <body>
   <main>
-    <section class="hero">
-      <div class="hero-main panel">
-        <p class="eyebrow">Pengumuman Internal</p>
-        <h1>Guide Penamaan Sistem & Assignment</h1>
-        <p>Ikuti ini buat merapikan Community WA, grup, OneDrive, Masterlink, folder rapat, notulen, dan status assignment. Baca dari atas ke bawah: description dulu, nama-nama sistem, lalu cek progress masing-masing.</p>
-      </div>
-      <aside class="deadline panel">
-        <span class="date-pill">Deadline final</span>
-        <strong>Rabu,<br>27 Mei 2026</strong>
-        <p class="hint">Scope-nya mostly ganti nama, rapihin link, dan melengkapi record yang kurang.</p>
+    <div class="shell">
+      <aside class="side">
+        <div class="brand-card">
+          <p>Study Guide</p>
+          <strong>WA System Clean-Up</strong>
+          <p class="muted">1 file. Online. Easy to scan.</p>
+        </div>
+        <nav class="nav" aria-label="Navigasi halaman">
+          <a href="#overview">Overview</a>
+          <a href="#desc">Description</a>
+          <a href="#format">Format</a>
+          <a href="#study">Study Mode</a>
+          <a href="#assignment">Assignment</a>
+          <a href="#final">Final To-Do</a>
+        </nav>
       </aside>
-    </section>
 
-    <section class="quick-grid">
-      <div class="stat"><span>Fokus utama</span><strong>Penamaan</strong></div>
-      <div class="stat"><span>Platform</span><strong>WA + OneDrive</strong></div>
-      <div class="stat"><span>Akses edit</span><strong>DPIE only</strong></div>
-      <div class="stat"><span>Final check</span><strong>27 Mei</strong></div>
-    </section>
-
-    <section class="panel section">
-      <h2>Step 1: Isi Description Community WA</h2>
-      <div class="flow">
-        <div class="card">
-          <h3><span class="num">1</span> Tulis Master Folder</h3>
-          <p class="formula">Master Folder (View-Only): [link OneDrive kalian]</p>
-          <p class="hint">Link yang dipakai adalah link OneDrive dengan akses view-only.</p>
-        </div>
-        <div class="card">
-          <h3><span class="num">2</span> Atur Permission</h3>
-          <p class="formula">Only in Bina Nusantara can view</p>
-          <p class="hint">Untuk view, pakai setting yang hanya bisa dilihat oleh akun Bina Nusantara.</p>
-        </div>
-        <div class="card">
-          <h3><span class="num">3</span> Edit Hanya DPIE</h3>
-          <p class="formula">Specific people: DPIE</p>
-          <p class="hint">Fokus masukkan DPIE saja untuk edit. DPI Reg sudah bisa edit dari awal karena akses 1 region sudah diberikan.</p>
-        </div>
-      </div>
-      <div class="card" style="margin-top:12px;background:#fffaf0;">
-        <h3><span class="num">fx</span> Rumus Ambil Email</h3>
-        <p class="formula">=textjoin(";", TRUE, cell)</p>
-        <p class="hint">Pakai rumus ini di Excel buat ambil email otomatis, lalu tinggal copy-paste hasilnya ke permission edit.</p>
-      </div>
-    </section>
-
-    <section class="panel section">
-      <h2>Step 2: Ikuti Format Penamaan</h2>
-      <div class="rule-grid">
-        <div class="card">
-          <h3><span class="num">WA</span> Judul Community</h3>
-          <p class="formula">[JENIS KEGIATAN] [REGION] - JUDUL KEGIATAN</p>
-          <div class="example">LDK-CP ALS - IMMERISE</div>
-          <p class="hint">Kalau tidak ada judul kegiatan, cukup sampai region. Contoh: LDK-CP ALS.</p>
-        </div>
-        <div class="card">
-          <h3><span class="num">GR</span> Grup Community</h3>
-          <p class="formula">[JENIS KEGIATAN] DIVISI NAMA</p>
-          <div class="example">LDK-CP DIVISI FUNDING</div>
-          <p class="hint">Tambahkan juga grup [JENIS KEGIATAN] ALL DPI dan [JENIS KEGIATAN] ALL PANITIA.</p>
-        </div>
-        <div class="card">
-          <h3><span class="num">OD</span> Folder OneDrive</h3>
-          <p class="formula">JENIS KEGIATAN - NAMA KEGIATAN</p>
-          <div class="example">LDK-CP - IMMERISE</div>
-          <p class="hint">Kalau tidak ada nama kegiatan, cukup pakai jenis kegiatannya saja.</p>
-        </div>
-        <div class="card">
-          <h3><span class="num">MT</span> Meeting & Notulen</h3>
-          <p class="formula">YYYY-MM-DD Coordination I<br>YYYY-MM-DD Funding I</p>
-          <p class="hint">Meeting title Masterlink harus lengkap dengan agenda spesifik. Untuk notulen dan folder cukup pakai bagian depannya saja.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="panel section">
-      <h2>Study Mode: Buka Satu-Satu</h2>
-      <details open>
-        <summary>Description Community WA</summary>
-        <div class="detail-body">
-          <p>Isi description dengan link Master Folder view-only. Permission view harus <strong>only in Bina Nusantara can view</strong>, sedangkan akses edit hanya untuk <strong>DPIE</strong>.</p>
-          <p class="formula">Master Folder (View-Only): [link OneDrive kalian]</p>
-        </div>
-      </details>
-      <details>
-        <summary>Nama Community WhatsApp</summary>
-        <div class="detail-body">
-          <p>Pakai format <strong>[JENIS KEGIATAN] [REGION] - JUDUL KEGIATAN</strong>. Kalau tidak ada judul kegiatan, berhenti sampai region saja.</p>
-          <p class="formula">LDK-CP ALS - IMMERISE<br>LDK-CP ALS</p>
-        </div>
-      </details>
-      <details>
-        <summary>Nama Grup di Community</summary>
-        <div class="detail-body">
-          <p>Untuk divisi, pakai <strong>[JENIS KEGIATAN] DIVISI NAMA</strong>. Jangan lupa grup wajib ALL DPI dan ALL PANITIA.</p>
-          <p class="formula">LDK-CP DIVISI FUNDING<br>LDK-CP ALL DPI<br>LDK-CP ALL PANITIA</p>
-        </div>
-      </details>
-      <details>
-        <summary>Folder, Meeting, dan Notulen</summary>
-        <div class="detail-body">
-          <p>Folder OneDrive pakai <strong>JENIS KEGIATAN - NAMA KEGIATAN</strong>. Nama rapat di notulen dan folder cukup bagian depan dari meeting title Masterlink.</p>
-          <p class="formula">LDK-CP - IMMERISE<br>YYYY-MM-DD Coordination I<br>YYYY-MM-DD Funding I</p>
-        </div>
-      </details>
-    </section>
-
-    <section class="panel section">
-      <h2>Mini Check: Pilih Format yang Benar</h2>
-      <div class="quiz">
-        <input type="radio" name="q1" id="q1a">
-        <label for="q1a">
-          Community: LDK-CP ALS - IMMERISE
-          <span class="quiz-answer">Benar. Ada jenis kegiatan, region, dan judul kegiatan.</span>
-        </label>
-        <input type="radio" name="q1" id="q1b">
-        <label for="q1b">
-          Community: ALS IMMERISE LDK-CP
-          <span class="quiz-answer" style="color:var(--red);">Belum sesuai. Urutannya harus [JENIS KEGIATAN] [REGION] - JUDUL KEGIATAN.</span>
-        </label>
-        <input type="radio" name="q1" id="q1c">
-        <label for="q1c">
-          Grup: LDK-CP DIVISI FUNDING
-          <span class="quiz-answer">Benar. Ini format grup divisi di dalam community.</span>
-        </label>
-      </div>
-    </section>
-
-    <section class="panel section">
-      <h2>Step 3: Cek Assignment</h2>
-      <div class="assignments">
-        <article class="task">
-          <div class="task-head">
-            <h3>1. Members.xlsm</h3>
-            <span class="chip ok">Done</span>
+      <div>
+        <section class="hero" id="overview">
+          <div class="hero-main panel">
+            <p class="eyebrow">Pengumuman Internal</p>
+            <h1>Guide Penamaan Sistem & Assignment</h1>
+            <p>Buka ini seperti mini-dashboard. Mulai dari description Community WA, lanjut format penamaan, lalu cek assignment dan final to-do sebelum deadline.</p>
           </div>
-          <p class="deadline-line">DD: Selasa, 12 Mei 2026</p>
-          <p>Lengkapi file Members.xlsm dengan paste only values. Status: sudah lengkap semua.</p>
-        </article>
-        <article class="task">
-          <div class="task-head">
-            <h3>2. OneDrive Proker</h3>
-            <span class="chip todo">Masih ada kurang</span>
-          </div>
-          <p class="deadline-line">DD: Sabtu, 16 Mei 2026</p>
-          <p>ALS kurang Market Trip, Collab, dan Inisiatif kurang 1. MLG mandatory belum lengkap. Expo mandatory. KMG OK dan SMG OK.</p>
-        </article>
-        <article class="task">
-          <div class="task-head">
-            <h3>3. Arsip Surat</h3>
-            <span class="chip todo">Belum lengkap</span>
-          </div>
-          <p class="deadline-line">DD: Sabtu, 23 Mei 2026</p>
-          <p>ALS, MLG, dan SMG belum ada. KMG OK.</p>
-        </article>
-        <article class="task">
-          <div class="task-head">
-            <h3>4. Data Meeting</h3>
-            <span class="chip late">Perlu dirapikan</span>
-          </div>
-          <p class="deadline-line">DPI: Sabtu, 16 Mei 2026 | Proker & Divisi: Sabtu, 23 Mei 2026</p>
-          <p>SMG kurang 1 DPI. MLG OK tapi nama salah dan divisi belum ada sama sekali. KMG kurang 2 DPI dan coordination; divisi dan nama masih salah. ALS rapat DPI bulannya salah; rapat lain ada tapi nama belum sesuai format.</p>
-        </article>
-        <article class="task">
-          <div class="task-head">
-            <h3>5. Asset Reports</h3>
-            <span class="chip todo">Not yet</span>
-          </div>
-          <p class="deadline-line">DD: Setiap malam akhir bulan</p>
-          <p>Finalisasi asset reports sesuai jadwal akhir bulan.</p>
-        </article>
-        <article class="task">
-          <div class="task-head">
-            <h3>6. Kirim File</h3>
-            <span class="chip ok">OK semua</span>
-          </div>
-          <p class="deadline-line">DD: Sabtu, 16 Mei 2026</p>
-          <p>Kirim file melalui PC ke penanggung jawab. Status: OK semua.</p>
-        </article>
-      </div>
-    </section>
+          <aside class="deadline panel">
+            <div>
+              <span class="tag red">Deadline Final</span>
+              <strong>Rabu,<br>27 Mei 2026</strong>
+            </div>
+            <p>Scope utamanya: ganti nama, rapikan link, atur permission, dan lengkapi record yang masih kurang.</p>
+          </aside>
+        </section>
 
-    <section class="panel section">
-      <h2>Final To-Do Sebelum 27 Mei</h2>
-      <div class="study-check">
-        <input type="checkbox" id="todo1">
-        <label for="todo1"><span class="box">✓</span><span>Isi description Community WA dengan link Master Folder view-only.</span></label>
-        <input type="checkbox" id="todo2">
-        <label for="todo2"><span class="box">✓</span><span>Pastikan permission view adalah only in Bina Nusantara can view.</span></label>
-        <input type="checkbox" id="todo3">
-        <label for="todo3"><span class="box">✓</span><span>Set akses edit hanya untuk DPIE; DPI Reg sudah punya akses region.</span></label>
-        <input type="checkbox" id="todo4">
-        <label for="todo4"><span class="box">✓</span><span>Rapikan nama Community WA, grup divisi, ALL DPI, dan ALL PANITIA.</span></label>
-        <input type="checkbox" id="todo5">
-        <label for="todo5"><span class="box">✓</span><span>Rapikan folder OneDrive dan nama rapat berdasarkan Masterlink.</span></label>
-        <input type="checkbox" id="todo6">
-        <label for="todo6"><span class="box">✓</span><span>Lengkapi kekurangan OneDrive Proker, Arsip Surat, Data Meeting, dan Asset Reports.</span></label>
+        <section class="metrics">
+          <div class="metric"><span>Fokus</span><strong>Penamaan</strong></div>
+          <div class="metric"><span>Platform</span><strong>WA + OneDrive</strong></div>
+          <div class="metric"><span>Edit Access</span><strong>DPIE Only</strong></div>
+          <div class="metric"><span>Format</span><strong>1 Standard</strong></div>
+        </section>
+
+        <section class="panel" id="desc">
+          <h2>Step 1: Description Community WA</h2>
+          <p class="section-intro">Bagian ini wajib diisi di description community supaya semua orang langsung tahu master folder dan permission-nya.</p>
+          <div class="steps">
+            <div class="card">
+              <h3><span class="kicker">1</span>Tulis Master Folder</h3>
+              <div class="code">Master Folder (View-Only): [link OneDrive kalian]</div>
+              <p>Link yang dicantumkan adalah link master folder OneDrive.</p>
+            </div>
+            <div class="card">
+              <h3><span class="kicker">2</span>Set View Access</h3>
+              <div class="code">Only in Bina Nusantara can view</div>
+              <p>Untuk akses lihat, pakai setting view-only khusus akun Bina Nusantara.</p>
+            </div>
+            <div class="card">
+              <h3><span class="kicker">3</span>Set Edit Access</h3>
+              <div class="code">Specific people: DPIE</div>
+              <p>Yang boleh edit cukup DPIE. DPI Reg sudah bisa edit dari awal karena akses 1 region sudah diberikan.</p>
+            </div>
+          </div>
+          <div class="card" style="margin-top:12px;background:#fffaf0;">
+            <h3><span class="kicker">fx</span>Rumus Ambil Email</h3>
+            <div class="code">=textjoin(";", TRUE, cell)</div>
+            <p>Pakai di Excel untuk ambil email otomatis, lalu copy-paste hasilnya ke permission edit.</p>
+          </div>
+        </section>
+
+        <section class="panel" id="format">
+          <h2>Step 2: Format Penamaan</h2>
+          <p class="section-intro">Pakai format ini supaya semua region dan proker punya struktur nama yang sama.</p>
+          <div class="rules">
+            <div class="card">
+              <h3><span class="kicker">WA</span>Judul Community</h3>
+              <div class="code">[JENIS KEGIATAN] [REGION] - JUDUL KEGIATAN</div>
+              <div class="example">LDK-CP ALS - IMMERISE</div>
+              <p class="muted">Kalau tidak ada judul kegiatan: LDK-CP ALS.</p>
+            </div>
+            <div class="card">
+              <h3><span class="kicker">GR</span>Grup Community</h3>
+              <div class="code">[JENIS KEGIATAN] DIVISI NAMA</div>
+              <div class="example">LDK-CP DIVISI FUNDING</div>
+              <p class="muted">Wajib ada juga: [JENIS KEGIATAN] ALL DPI dan [JENIS KEGIATAN] ALL PANITIA.</p>
+            </div>
+            <div class="card">
+              <h3><span class="kicker">OD</span>Folder OneDrive</h3>
+              <div class="code">JENIS KEGIATAN - NAMA KEGIATAN</div>
+              <div class="example">LDK-CP - IMMERISE</div>
+              <p class="muted">Kalau tidak ada nama kegiatan, cukup jenis kegiatannya saja.</p>
+            </div>
+            <div class="card">
+              <h3><span class="kicker">MT</span>Meeting & Notulen</h3>
+              <div class="code">YYYY-MM-DD Coordination I<br>YYYY-MM-DD Funding I</div>
+              <p class="muted">Masterlink harus punya agenda spesifik. Notulen dan folder cukup bagian depan meeting title.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel" id="study">
+          <h2>Study Mode</h2>
+          <p class="section-intro">Pilih tab untuk belajar per bagian. Ini CSS-only, jadi tetap ringan dan cuma satu file.</p>
+          <div class="tabs">
+            <input checked type="radio" name="tab" id="tab-desc">
+            <input type="radio" name="tab" id="tab-wa">
+            <input type="radio" name="tab" id="tab-drive">
+            <input type="radio" name="tab" id="tab-meeting">
+            <div class="tab-buttons">
+              <label for="tab-desc">Description</label>
+              <label for="tab-wa">WhatsApp</label>
+              <label for="tab-drive">OneDrive</label>
+              <label for="tab-meeting">Meeting</label>
+            </div>
+            <div class="tab-content desc">
+              <h3>Description Community WA</h3>
+              <p>Isi description dengan link Master Folder view-only. View access untuk Bina Nusantara, edit access untuk DPIE.</p>
+              <div class="code">Master Folder (View-Only): [link OneDrive kalian]</div>
+            </div>
+            <div class="tab-content wa">
+              <h3>WhatsApp Community & Grup</h3>
+              <p>Community pakai jenis kegiatan, region, dan judul. Grup divisi pakai nama divisi. ALL DPI dan ALL PANITIA wajib ada.</p>
+              <div class="code">LDK-CP ALS - IMMERISE<br>LDK-CP DIVISI FUNDING</div>
+            </div>
+            <div class="tab-content drive">
+              <h3>OneDrive Folder</h3>
+              <p>Folder mengikuti jenis kegiatan dan nama kegiatan. Kalau tidak ada nama kegiatan, jangan dipaksa ditambah.</p>
+              <div class="code">LDK-CP - IMMERISE<br>LDK-CP</div>
+            </div>
+            <div class="tab-content meeting">
+              <h3>Meeting, Folder, Notulen</h3>
+              <p>Meeting title di Masterlink lengkap dengan agenda. Nama folder dan notulen cukup bagian depan yang rapi.</p>
+              <div class="code">YYYY-MM-DD Coordination I<br>YYYY-MM-DD Funding I</div>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel">
+          <h2>Open Cards: Buka Kalau Lupa</h2>
+          <p class="mobile-note">Tap setiap kartu buat buka-tutup penjelasannya.</p>
+          <details open>
+            <summary>Kalau tidak ada judul kegiatan gimana?</summary>
+            <div class="detail-body">
+              <p>Jangan tambahkan judul kosong. Cukup pakai jenis kegiatan dan region.</p>
+              <div class="code">LDK-CP ALS</div>
+            </div>
+          </details>
+          <details>
+            <summary>Siapa yang boleh edit OneDrive?</summary>
+            <div class="detail-body">
+              <p>Fokus taruh DPIE di specific people. DPI Reg sudah bisa edit dari awal karena permission region sudah diberikan.</p>
+            </div>
+          </details>
+          <details>
+            <summary>Nama rapat harus sedetail Masterlink?</summary>
+            <div class="detail-body">
+              <p>Masterlink harus punya agenda spesifik yang mencakup semua. Untuk notulen dan folder cukup bagian depannya.</p>
+            </div>
+          </details>
+        </section>
+
+        <section class="panel">
+          <h2>Mini Check</h2>
+          <p class="section-intro">Klik pilihan untuk lihat feedback. Ini buat bantu orang cepat paham format yang benar.</p>
+          <div class="practice-grid">
+            <div class="card">
+              <h3>Soal Cepat</h3>
+              <p>Mana contoh nama yang sudah sesuai?</p>
+            </div>
+            <div class="choice">
+              <input type="radio" name="quiz" id="q1">
+              <label for="q1">Community: LDK-CP ALS - IMMERISE <span class="answer">Benar. Ada jenis kegiatan, region, dan judul.</span></label>
+              <input type="radio" name="quiz" id="q2">
+              <label for="q2">Community: ALS IMMERISE LDK-CP <span class="answer wrong">Belum sesuai. Urutannya kebalik.</span></label>
+              <input type="radio" name="quiz" id="q3">
+              <label for="q3">Grup: LDK-CP DIVISI FUNDING <span class="answer">Benar. Ini format untuk grup divisi.</span></label>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel" id="assignment">
+          <h2>Step 3: Assignment Board</h2>
+          <p class="section-intro">Status terakhir dirapikan jadi kartu supaya gampang dilihat mana yang OK dan mana yang masih perlu action.</p>
+          <div class="assignments">
+            <article class="task">
+              <div class="task-head"><h3>1. Members.xlsm</h3><span class="chip ok">Done</span></div>
+              <p class="deadline-line">DD: Selasa, 12 Mei 2026</p>
+              <p>Lengkapi file Members.xlsm dengan paste only values. Status: sudah lengkap semua.</p>
+            </article>
+            <article class="task">
+              <div class="task-head"><h3>2. OneDrive Proker</h3><span class="chip todo">Kurang</span></div>
+              <p class="deadline-line">DD: Sabtu, 16 Mei 2026</p>
+              <p>ALS kurang Market Trip, Collab, dan Inisiatif kurang 1. MLG mandatory belum lengkap. Expo mandatory. KMG OK dan SMG OK.</p>
+            </article>
+            <article class="task">
+              <div class="task-head"><h3>3. Arsip Surat</h3><span class="chip todo">Belum lengkap</span></div>
+              <p class="deadline-line">DD: Sabtu, 23 Mei 2026</p>
+              <p>ALS, MLG, dan SMG belum ada. KMG OK.</p>
+            </article>
+            <article class="task">
+              <div class="task-head"><h3>4. Data Meeting</h3><span class="chip late">Rapikan</span></div>
+              <p class="deadline-line">DPI: Sabtu, 16 Mei 2026 | Proker & Divisi: Sabtu, 23 Mei 2026</p>
+              <p>SMG kurang 1 DPI. MLG OK tapi nama salah dan divisi belum ada. KMG kurang 2 DPI dan coordination; divisi dan nama masih salah. ALS rapat DPI bulannya salah; rapat lain ada tapi nama belum sesuai format.</p>
+            </article>
+            <article class="task">
+              <div class="task-head"><h3>5. Asset Reports</h3><span class="chip todo">Not yet</span></div>
+              <p class="deadline-line">DD: Setiap malam akhir bulan</p>
+              <p>Finalisasi asset reports sesuai jadwal akhir bulan.</p>
+            </article>
+            <article class="task">
+              <div class="task-head"><h3>6. Kirim File</h3><span class="chip ok">OK</span></div>
+              <p class="deadline-line">DD: Sabtu, 16 Mei 2026</p>
+              <p>Kirim file melalui PC ke penanggung jawab. Status: OK semua.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="panel" id="final">
+          <h2>Final To-Do Sebelum 27 Mei</h2>
+          <p class="section-intro">Centang manual pas sudah selesai. Checklist ini tidak tersimpan setelah refresh, tapi enak buat tracking cepat.</p>
+          <div class="checklist">
+            <input type="checkbox" id="todo1"><label for="todo1"><span class="box">OK</span><span>Isi description Community WA dengan link Master Folder view-only.</span></label>
+            <input type="checkbox" id="todo2"><label for="todo2"><span class="box">OK</span><span>Pastikan permission view adalah only in Bina Nusantara can view.</span></label>
+            <input type="checkbox" id="todo3"><label for="todo3"><span class="box">OK</span><span>Set akses edit hanya untuk DPIE; DPI Reg sudah punya akses region.</span></label>
+            <input type="checkbox" id="todo4"><label for="todo4"><span class="box">OK</span><span>Rapikan nama Community WA, grup divisi, ALL DPI, dan ALL PANITIA.</span></label>
+            <input type="checkbox" id="todo5"><label for="todo5"><span class="box">OK</span><span>Rapikan folder OneDrive dan nama rapat berdasarkan Masterlink.</span></label>
+            <input type="checkbox" id="todo6"><label for="todo6"><span class="box">OK</span><span>Lengkapi kekurangan OneDrive Proker, Arsip Surat, Data Meeting, dan Asset Reports.</span></label>
+          </div>
+        </section>
       </div>
-    </section>
+    </div>
   </main>
 </body>
 </html>
