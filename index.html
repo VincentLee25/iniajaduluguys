@@ -269,6 +269,8 @@
     .rules,
     .assignments,
     .practice-grid,
+    .study-grid,
+    .reminder-grid,
     .checklist {
       display: grid;
       gap: 12px;
@@ -278,6 +280,8 @@
     .rules { grid-template-columns: repeat(2, 1fr); }
     .assignments { grid-template-columns: repeat(2, 1fr); }
     .practice-grid { grid-template-columns: .9fr 1.1fr; }
+    .study-grid { grid-template-columns: repeat(2, 1fr); }
+    .reminder-grid { grid-template-columns: repeat(3, 1fr); }
     .checklist { grid-template-columns: repeat(2, 1fr); }
 
     .card,
@@ -421,50 +425,8 @@
       font-size: 14px;
     }
 
-    .tabs input,
     .choice input,
     .checklist input { position: absolute; opacity: 0; pointer-events: none; }
-
-    .tab-buttons {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 8px;
-      margin-bottom: 12px;
-    }
-
-    .tab-buttons label {
-      padding: 10px;
-      border: 1px solid var(--line);
-      border-radius: 7px;
-      background: #fff;
-      color: #33464e;
-      cursor: pointer;
-      font-size: 13px;
-      font-weight: 900;
-      text-align: center;
-    }
-
-    #tab-desc:checked ~ .tab-buttons label[for="tab-desc"],
-    #tab-wa:checked ~ .tab-buttons label[for="tab-wa"],
-    #tab-drive:checked ~ .tab-buttons label[for="tab-drive"],
-    #tab-meeting:checked ~ .tab-buttons label[for="tab-meeting"] {
-      border-color: var(--teal);
-      background: var(--mint);
-      color: var(--teal-2);
-    }
-
-    .tab-content {
-      display: none;
-      padding: 16px;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: #fff;
-    }
-
-    #tab-desc:checked ~ .desc,
-    #tab-wa:checked ~ .wa,
-    #tab-drive:checked ~ .drive,
-    #tab-meeting:checked ~ .meeting { display: block; }
 
     .choice {
       display: grid;
@@ -562,6 +524,8 @@
       .rules,
       .assignments,
       .practice-grid,
+      .study-grid,
+      .reminder-grid,
       .checklist {
         grid-template-columns: 1fr;
       }
@@ -569,7 +533,6 @@
       .deadline,
       .panel { padding: 18px; }
       h1 { font-size: 32px; }
-      .tab-buttons { grid-template-columns: repeat(2, 1fr); }
       .mobile-note { display: block; }
     }
   </style>
@@ -613,7 +576,7 @@
           <div class="metric"><span>Fokus</span><strong>Penamaan</strong></div>
           <div class="metric"><span>Platform</span><strong>WA + OneDrive</strong></div>
           <div class="metric"><span>Edit Access</span><strong>DPIE Only</strong></div>
-          <div class="metric"><span>Format</span><strong>1 Standard</strong></div>
+          <div class="metric"><span>Masterlink</span><strong>Dilengkapi</strong></div>
         </section>
 
         <section class="panel" id="desc">
@@ -675,34 +638,24 @@
 
         <section class="panel" id="study">
           <h2>Study Mode</h2>
-          <p class="section-intro">Pilih tab untuk belajar per bagian. Ini CSS-only, jadi tetap ringan dan cuma satu file.</p>
-          <div class="tabs">
-            <input checked type="radio" name="tab" id="tab-desc">
-            <input type="radio" name="tab" id="tab-wa">
-            <input type="radio" name="tab" id="tab-drive">
-            <input type="radio" name="tab" id="tab-meeting">
-            <div class="tab-buttons">
-              <label for="tab-desc">Description</label>
-              <label for="tab-wa">WhatsApp</label>
-              <label for="tab-drive">OneDrive</label>
-              <label for="tab-meeting">Meeting</label>
-            </div>
-            <div class="tab-content desc">
+          <p class="section-intro">Semua bagian penting dibuka langsung supaya tidak ada instruksi yang kelewat.</p>
+          <div class="study-grid">
+            <div class="card">
               <h3>Description Community WA</h3>
               <p>Isi description dengan link Master Folder view-only. View access untuk Bina Nusantara, edit access untuk DPIE.</p>
               <div class="code">Master Folder (View-Only): [link OneDrive kalian]</div>
             </div>
-            <div class="tab-content wa">
+            <div class="card">
               <h3>WhatsApp Community & Grup</h3>
               <p>Community pakai jenis kegiatan, region, dan judul. Grup divisi pakai nama divisi. ALL DPI dan ALL PANITIA wajib ada.</p>
               <div class="code">LDK-CP ALS - IMMERISE<br>LDK-CP DIVISI FUNDING</div>
             </div>
-            <div class="tab-content drive">
+            <div class="card">
               <h3>OneDrive Folder</h3>
               <p>Folder mengikuti jenis kegiatan dan nama kegiatan. Kalau tidak ada nama kegiatan, jangan dipaksa ditambah.</p>
               <div class="code">LDK-CP - IMMERISE<br>LDK-CP</div>
             </div>
-            <div class="tab-content meeting">
+            <div class="card">
               <h3>Meeting, Folder, Notulen</h3>
               <p>Meeting title di Masterlink lengkap dengan agenda. Nama folder dan notulen cukup bagian depan yang rapi.</p>
               <div class="code">YYYY-MM-DD Coordination I<br>YYYY-MM-DD Funding I</div>
@@ -711,27 +664,23 @@
         </section>
 
         <section class="panel">
-          <h2>Open Cards: Buka Kalau Lupa</h2>
-          <p class="mobile-note">Tap setiap kartu buat buka-tutup penjelasannya.</p>
-          <details open>
-            <summary>Kalau tidak ada judul kegiatan gimana?</summary>
-            <div class="detail-body">
+          <h2>Reminder Cards</h2>
+          <p class="section-intro">Catatan cepat yang langsung kelihatan tanpa perlu dibuka-tutup.</p>
+          <div class="reminder-grid">
+            <div class="card">
+              <h3>Kalau tidak ada judul kegiatan?</h3>
               <p>Jangan tambahkan judul kosong. Cukup pakai jenis kegiatan dan region.</p>
               <div class="code">LDK-CP ALS</div>
             </div>
-          </details>
-          <details>
-            <summary>Siapa yang boleh edit OneDrive?</summary>
-            <div class="detail-body">
+            <div class="card">
+              <h3>Siapa yang boleh edit?</h3>
               <p>Fokus taruh DPIE di specific people. DPI Reg sudah bisa edit dari awal karena permission region sudah diberikan.</p>
             </div>
-          </details>
-          <details>
-            <summary>Nama rapat harus sedetail Masterlink?</summary>
-            <div class="detail-body">
+            <div class="card">
+              <h3>Masterlink dan nama rapat</h3>
               <p>Masterlink harus punya agenda spesifik yang mencakup semua. Untuk notulen dan folder cukup bagian depannya.</p>
             </div>
-          </details>
+          </div>
         </section>
 
         <section class="panel">
@@ -787,6 +736,11 @@
               <p class="deadline-line">DD: Sabtu, 16 Mei 2026</p>
               <p>Kirim file melalui PC ke penanggung jawab. Status: OK semua.</p>
             </article>
+            <article class="task">
+              <div class="task-head"><h3>7. Program Masterlink</h3><span class="chip todo">Lengkapi</span></div>
+              <p class="deadline-line">DD: Rabu, 27 Mei 2026</p>
+              <p>Program Masterlink wajib dilengkapi dan disesuaikan dengan format serta kebutuhan record yang sudah ditentukan.</p>
+            </article>
           </div>
         </section>
 
@@ -800,6 +754,7 @@
             <input type="checkbox" id="todo4"><label for="todo4"><span class="box">OK</span><span>Rapikan nama Community WA, grup divisi, ALL DPI, dan ALL PANITIA.</span></label>
             <input type="checkbox" id="todo5"><label for="todo5"><span class="box">OK</span><span>Rapikan folder OneDrive dan nama rapat berdasarkan Masterlink.</span></label>
             <input type="checkbox" id="todo6"><label for="todo6"><span class="box">OK</span><span>Lengkapi kekurangan OneDrive Proker, Arsip Surat, Data Meeting, dan Asset Reports.</span></label>
+            <input type="checkbox" id="todo7"><label for="todo7"><span class="box">OK</span><span>Lengkapi Program Masterlink sesuai ketentuan.</span></label>
           </div>
         </section>
       </div>
